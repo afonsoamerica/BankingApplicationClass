@@ -35,15 +35,22 @@ class ContaCorrente:
 
     def realizar_transacao(self, valor, tipo, destino_usuario=None):
         """Realiza a transação e registra no histórico."""
+        if self.saldo < valor:
+            print("Saldo insuficiente para a transferência.")
+            return
+        
+        senha_digitada = input("Digite a sua senha para confirmar a transação: ")
+        if senha_digitada != self.usuario.senha:
+            print("Senha incorreta. Transação não realizada.")
+            return
+        
         if tipo == 'transferencia':
-            if self.saldo >= valor:
-                self.saldo -= valor
-                destino_usuario.conta_corrente.saldo += valor
-                self.historico.append(f"Transferência de R$ {valor:.2f} para o CPF {destino_usuario.cpf}.")
-                destino_usuario.conta_corrente.historico.append(f"Recebido R$ {valor:.2f} de {self.usuario.cpf}.")
-                print(f"Transferência realizada com sucesso!")
-            else:
-                print("Saldo insuficiente para a transferência.")
+            self.saldo -= valor
+            destino_usuario.conta_corrente.saldo += valor
+            # Adiciona no histórico dos dois usuários
+            self.historico.append(f"Transferência de R$ {valor:.2f} para {destino_usuario.nome} ({destino_usuario.cpf}).")
+            destino_usuario.conta_corrente.historico.append(f"Recebido R$ {valor:.2f} de {self.usuario.nome} ({self.usuario.cpf}).")
+            print(f"Transferência realizada com sucesso!")
         else:
             print("Tipo de transação inválido.")
             
