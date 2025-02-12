@@ -13,6 +13,7 @@ As classes implementadas no código são:
 - ContaPoupanca
 
 ..............................................................................
+
  Classe Usuario:
 Representa um usuário do sistema bancário.
 
@@ -46,6 +47,7 @@ mostrar_saldo(): Exibe os saldos das contas do usuário e o total do patrimônio
 
 
 ...................................
+
 Classe ContaCorrente
 Representa uma conta corrente.
 Atributos:
@@ -54,6 +56,7 @@ saldo: Saldo atual da conta corrente.
 
 
 ...................................
+
 Classe ContaPoupanca
 Representa uma conta poupança.
 Atributos:
