@@ -8,7 +8,7 @@ class Usuario:
 
     def criar_conta_corrente(self, saldo_inicial):
         if self.conta_corrente is None:
-            self.conta_corrente = ContaCorrente(saldo_inicial)
+            self.conta_corrente = ContaCorrente(saldo_inicial, self)
             print(f"Conta Corrente criada com saldo de R$ {saldo_inicial:.2f}")
         else:
             print("Usuário já possui uma conta corrente.")
@@ -28,8 +28,33 @@ class Usuario:
         print(f"Total de Patrimônio: R$ {saldo_cp + saldo_cc:.2f}")
 
 class ContaCorrente:
-    def __init__(self, saldo=0):
+    def __init__(self, saldo=0, usuario=None):
         self.saldo = saldo
+        self.historico = []  # Histórico de transações
+        self.usuario = usuario  # Referência ao usuário
+
+    def realizar_transacao(self, valor, tipo, destino_usuario=None):
+        """Realiza a transação e registra no histórico."""
+        if tipo == 'transferencia':
+            if self.saldo >= valor:
+                self.saldo -= valor
+                destino_usuario.conta_corrente.saldo += valor
+                self.historico.append(f"Transferência de R$ {valor:.2f} para o CPF {destino_usuario.cpf}.")
+                destino_usuario.conta_corrente.historico.append(f"Recebido R$ {valor:.2f} de {self.usuario.cpf}.")
+                print(f"Transferência realizada com sucesso!")
+            else:
+                print("Saldo insuficiente para a transferência.")
+        else:
+            print("Tipo de transação inválido.")
+            
+    def mostrar_historico(self):
+        """Exibe o histórico de transações da conta corrente."""
+        if not self.historico:
+            print("Nenhuma transação realizada.")
+        else:
+            print("Histórico de Transações:")
+            for transacao in self.historico:
+                print(transacao)
 
 class ContaPoupanca:
     def __init__(self, saldo=0):
@@ -43,7 +68,9 @@ def menu():
         print("2. Criar Conta Corrente")
         print("3. Criar Conta Poupança")
         print("4. Ver Saldo")
-        print("5. Sair")
+        print("5. Realizar Transferência")
+        print("6. Ver Histórico de Transações")
+        print("7. Sair")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -80,6 +107,25 @@ def menu():
                 print("Usuário não encontrado.")
 
         elif opcao == "5":
+            cpf_origem = input("Digite o CPF do usuário de origem: ")
+            if cpf_origem in usuarios:
+                cpf_destino = input("Digite o CPF do usuário de destino: ")
+                if cpf_destino in usuarios and cpf_origem != cpf_destino:
+                    valor = float(input("Digite o valor da transferência: "))
+                    usuarios[cpf_origem].conta_corrente.realizar_transacao(valor, 'transferencia', usuarios[cpf_destino])
+                else:
+                    print("Usuário de destino inválido ou é o mesmo que o de origem.")
+            else:
+                print("Usuário de origem não encontrado.")
+                
+        elif opcao == "6":
+            cpf = input("Digite o CPF para ver o histórico: ")
+            if cpf in usuarios:
+                usuarios[cpf].conta_corrente.mostrar_historico()
+            else:
+                print("Usuário não encontrado.")
+
+        elif opcao == "7":
             print("Saindo...")
             break
 
