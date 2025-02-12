@@ -1,6 +1,8 @@
 Estrutura das Classes
 Comecei pensando em uma classe para o usuário que está acessando
 o banco e duas outras classes para os tipos de conta que ele pode criar: Conta Corrente e Conta Poupança.
+..
+
 
 As classes implementadas no código são:
 
@@ -14,14 +16,12 @@ As classes implementadas no código são:
 - Classe Usuario:
 Representa um usuário do sistema bancário.
 Atributos:
-
 nome: Nome do usuário.
-
 cpf: CPF do usuário (usado como identificador único).
 senha: Senha do usuário para autenticação.
+
 conta_corrente: Referência para uma instância de ContaCorrente (pode ser None se não houver conta criada).
 conta_poupanca: Referência para uma instância de ContaPoupanca (pode ser None se não houver conta criada).
-
 
 
 Métodos:
@@ -33,11 +33,22 @@ mostrar_saldo(): Exibe os saldos das contas do usuário e o total do patrimônio
 Classe ContaCorrente
 Representa uma conta corrente.
 Atributos:
-
 saldo: Saldo atual da conta corrente.
+
 Classe ContaPoupanca
 Representa uma conta poupança.
-
 Atributos:
 saldo: Saldo atual da conta poupança.
+
+
+
+
+
+
+funcionalidades: 
+• Criação e gerenciamento de contas
+• Ver seu saldo
+• transações 
+• histórico de transações
+
 
