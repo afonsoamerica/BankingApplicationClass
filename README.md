@@ -53,4 +53,6 @@ Representa uma conta poupança.
 - **transferências de valor entre conta poupança e conta corrente de um mesmo usuário**
 - **Ver seu saldo**
 - **Histórico de transações**
+- **Solicitar emprestimos, com juros**
+- **Pagar emprestimos**
 
