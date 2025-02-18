@@ -49,7 +49,8 @@ Representa uma conta poupança.
 ## Funcionalidades:
 
 - **Criação e gerenciamento de contas**
+- **Transferencias entre contas correntes de usuários diferentes**
+- **transferências de valor entre conta poupança e conta corrente de um mesmo usuário**
 - **Ver seu saldo**
-- **Transações**
 - **Histórico de transações**
 
