@@ -1,6 +1,6 @@
 # Estrutura das Classes
 
-# bancoab1_comtxt <------ projeto ab1 fnal
+# bancoab1_comtxt <------ projeto ab1 final
 
 Comecei pensando em uma classe para o usuário que está acessando o banco e duas outras classes para os tipos de conta que ele pode criar: **Conta Corrente** e **Conta Poupança**.
 
@@ -69,7 +69,9 @@ Representa uma conta poupança.
 - **suporte ao cliente**
 
 ## Funcionalidades não implementadas:
-- **Solicitação de talão de cheques**
+- **Solicitação de talão de cheques** <-- não consegui implementar de maneira que faça sentido para o usuário.
+- **Alerta de notificações** <-- não consegui implementar completamente,
+-   mas o codigo possue notificações de a existência de usuario com o mesmo cpf, quando não há saldo suficiente para transação
 - 
 - 
 
