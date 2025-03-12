@@ -71,7 +71,7 @@ Representa uma conta poupança.
 ## Funcionalidades não implementadas:
 - **Solicitação de talão de cheques** <-- não consegui implementar de maneira que faça sentido para o usuário.
 - **Alerta de notificações** <-- não consegui implementar completamente,
--   mas o codigo possue notificações de a existência de usuario com o mesmo cpf, quando não há saldo suficiente para transação
+-   mas o codigo possue notificações de a existência de usuario com o mesmo cpf, quando não há saldo suficiente para transação por exemplo
 - 
 - 
 
