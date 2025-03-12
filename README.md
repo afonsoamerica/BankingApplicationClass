@@ -7,6 +7,7 @@ Comecei pensando em uma classe para o usuário que está acessando o banco e dua
 - **Classe Usuario**
 - **Classe ContaCorrente**
 - **Classe ContaPoupanca**
+não todas as classes citadas
 
 ---
 
@@ -46,6 +47,10 @@ Representa uma conta poupança.
 
 ---
 
+
+
+
+
 ## Funcionalidades:
 
 - **Criação e gerenciamento de contas**
@@ -55,4 +60,15 @@ Representa uma conta poupança.
 - **Histórico de transações**
 - **Solicitar emprestimos, com juros**
 - **Pagar emprestimos**
+- **câmbio: comprar moeda estrangeira**
+- **câmbio: comprar criptomoeda**
+- **opção de poupança com rendimento**
+- **ver carteira**
+- **suporte ao cliente**
+
+## Funcionalidades não implementadas:
+- **Solicitação de talão de cheques**
+- 
+- 
+
 
